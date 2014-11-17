@@ -10,7 +10,7 @@ class EventsController < ApplicationController
   end
 
   # GET /events/1
-  # GET /events/1.json
+  # GET /events/1.json,
   def show
     @people = Role.where(event_id: @event.id).where(accepted: true)
     @pending_people = Role.where(event_id: @event.id).where(accepted: false)

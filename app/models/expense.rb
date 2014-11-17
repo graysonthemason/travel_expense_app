@@ -1,12 +1,12 @@
 
 class Expense < ActiveRecord::Base
-  # belongs_to :user thru  :event
   belongs_to :role
-  has_one :user, through: :role
-  has_one :event, through: :role
-  validates :item, :amount, :calculation_type, presence: true
-  validates :role_id, presence: true
-  validates :approved, :inclusion => {:in => [true, false]}
+  has_one 	 :user, through: :role
+  has_one 	 :event, through: :role
+  validates  :item, 	:amount, :calculation_type, presence: true
+  validates  :role_id, presence: true
+  validates  :approved, :inclusion => {:in => [true, false]}
+	
 	def total_days
 		(end_date - start_date).to_i
 	end
@@ -37,7 +37,7 @@ class Expense < ActiveRecord::Base
 	end
 
 	def gift
-	  amount.to_f/event.roles.select { |role|  role if role.accepted}.count
+	  amount.to_f / event.roles.select { |role|  role if role.accepted }.count
 	end
 
 	def calculate_owed
