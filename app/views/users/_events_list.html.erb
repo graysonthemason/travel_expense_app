@@ -1,21 +1,23 @@
-  <tr>
+
     <td> <%= link_to role.event.name, event_path(role.event.id) %> </td>
     <td> <%= role.event.location %></td>
-    <td> <%= role.event.start_date %> - <%= role.event.end_date %></td>
+    <% start_date = role.event.start_date%>
+    <% end_date = role.event.end_date%>
+    <td> <%= start_date.strftime("%a %b. %d, %y") %> - <%= end_date.strftime(" %a %b. %d, %y") %></td>
     <% if params[:edit] && role.id == params[:role].to_i %>
 
       <td><%= form_for(role, {url: user_path(id: @user.id, role_id: role.id)}) do |f| %>
           <%= f.date_field :start_date, min: role.event.start_date, max: role.event.end_date, value: role.start_date %> -
           <%= f.date_field :end_date, min: role.event.start_date, max: role.event.end_date, value: role.end_date %>
-          <%= f.submit %>
+          <%= f.submit "Update Dates"%>
       <% end %>
       </td>
     <% else %>
-      <td> <%= role.start_date %> - <%= role.end_date %></td>
+      <td> <%= role.start_date.strftime("%a %b. %d") %> - <%= role.end_date.strftime("%a %b. %d") %></td>
       <% if role.accepted %>
         <td> <p> <%= link_to 'edit',  user_path(@user.id, edit:"true", role: role.id)%></p> </td>
       <% else %>
         <td> <%= link_to 'accept',  event_path(role.event.id, friend:"true"), :method=> :put%> <%= link_to 'deny',  event_path(role.event.id, friend:"true"), :method=> :delete%></td>
       <% end %>
     <% end %>
-  </tr>
+

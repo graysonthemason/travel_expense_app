@@ -25,8 +25,8 @@
         <td><%= expense.item %></td>
         <td><%= expense.amount %></td>
         <td><%= expense.description %></td>
-        <td><%= expense.start_date %></td>
-        <td><%= expense.end_date %></td>
+        <td><%= expense.start_date.strftime("%a %b. %d") %></td>
+        <td><%= expense.end_date.strftime("%a %b. %d") %></td>
         <td><%= expense.user.name %></td>
         <td><%= link_to 'APPROVE',  expense_path(expense.id, approve:"true"), :method=> :put%>
             <%= link_to 'DENY',  expense_path(expense.id, approve:"true"), :method=> :delete%></td>

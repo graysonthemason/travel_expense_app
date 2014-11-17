@@ -193,7 +193,7 @@ div.strong {
 div.login {
 	/*background-color: rgba(255,255,255,.2);*/
 	height: 182px;
-
+	margin-bottom: -10px;
 }
 div.login input {
 	padding: 10px;
@@ -442,6 +442,7 @@ div.form2 {
 	&.p action_button  {
 		  margin-left:50px;
 	  }
+	font-family: 'Ubuntu';
 }
 
 div.field2 {
@@ -514,4 +515,55 @@ div.s_date{
 }
 div.form {
 	margin-top: 10px;
+}
+
+.tableHeader {
+	border-bottom: solid 1px;
+}
+
+.eventsHeader {
+	display: inline;
+	padding: 1px;
+	margin: 10px;
+}
+
+#eventsHeader {
+	text-align: center;
+	padding: 10px;
+}
+
+#ownerTitle, #organizerTitle, #invitedTitle {
+	color: gray;
+}
+
+.hover {
+	border-bottom: solid 3px #6496ff;
+}
+
+.scroll {
+  max-height: 220px;
+  overflow: auto;
+  float: right;
+  width: 600px;
+}
+
+.highlight {
+	color: gray;
+}
+
+#dialog_form {
+	display: none;
+}
+
+.ui-dialog {
+z-index: 1000 !important;
+}
+
+.ui-dialog-titlebar {
+	height: 20px;
+}
+
+.ui-dialog .ui-dialog-title {
+	float: none;
+	overflow:visible;
 }

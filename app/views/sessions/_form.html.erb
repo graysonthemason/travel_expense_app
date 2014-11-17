@@ -1,0 +1,37 @@
+<section id="dialog_form">
+  <div class="form2">
+    <%= form_tag(users_path, method: :post, remote: true) do %>
+    <div id="field_users_form" class="field2a">
+      <p>
+        <%= label_tag :email %>:
+        <%= text_field_tag "user[email]", nil, placeholder: 'Email (required)' %><br/>
+      </p>
+    </div>
+    <div id="field" class="field2a">
+    <p>
+      <%= label_tag :name  %>:
+      <%= text_field_tag "user[name]", nil, placeholder: 'Name (required)' %><br/>
+    </p>
+  </div>
+    <div id="field" class="field2a">
+     <p>
+      <%= label_tag :image %>:
+      <%= url_field_tag "user[image]", nil, placeholder: 'Image' %>&nbsp;<br/>
+    </p>
+  </div>
+    <div id="field" class="field2a pull">
+    <p>
+      <%= label_tag :password %>:
+      <%= password_field_tag "user[password]", nil, placeholder: 'Password (required)' %><br/></p>
+    </div>
+    <div id="field" class="field2a conf">
+      <p><%= label_tag :password_confirmation, 'Confirmation' %>:
+      <%= password_field_tag "user[password_confirmation]", nil, placeholder: 'Confirmation (required)' %><br/></p>
+    </div>
+</br>
+  <div id="field" class="field2a">
+    <p><%= submit_tag "Sign Up", id: 'sign_up_submit_button'%></p>
+  </div>
+    <% end %>
+  </div>
+</section>

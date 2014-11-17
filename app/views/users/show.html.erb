@@ -16,23 +16,45 @@
 
 </div>
 
-
-<h2> Events Owned </h2>
-
+<div id="eventsHeader">
+<a href="#"><h2 class="eventsHeader" id="allTitle">  All Events  </h2></a>
+<a href="#"><h2 class="eventsHeader" id="ownerTitle">  Owned  </h2></a>
+<a href="#"><h2 class="eventsHeader" id="organizerTitle">  Organizer  </h2></a>
+<a href="#"><h2 class="eventsHeader"id="invitedTitle">  Friend  </h2></a>
+</div>
 
 <table id="user-sassTable">
-<tr>
+<tr class="tableHeader">
+  <th>Role </th>
   <th>Name</th>
   <th>Location</th>
   <th>Event Dates</th>
   <th>Your Dates</th>
   <th>Status </th>
+</tr>
+
 <% @owner.each do |role| %>
-  <%= render partial: "events_list", locals: {role: role} %>
+  <tr class="eventsOwned">
+    <td>Owner</td>
+    <%= render partial: "events_list", locals: {role: role} %>
+  </tr>
 <%end%>
+<% @organizer.each do |role| %>
+  <tr class="eventsOrganized">
+    <td>Organizer</td>
+    <%= render partial: "events_list", locals: {role: role} %>
+  </tr>
+<%end%>
+<% @friend.each do |role| %>
+  <tr class="eventsInvited">
+    <td>Friend</td>
+    <%= render partial: "events_list", locals: {role: role} %>
+  <tr>
+<%end%>
+
 </table>
 
-
+<!--
 <h2> Events Organizing </h2>
 <table id="user-sassTable">
 <tr>
@@ -41,13 +63,11 @@
   <th>Event Dates</th>
   <th>Your Dates</th>
   <th>Status </th>
-<% @organizer.each do |role| %>
-  <%= render partial: "events_list", locals: {role: role} %>
-<%end%>
+
 </table>
 
-
-<h2> Events Invited to </h2>
+ -->
+<!-- <h2> Events Invited to </h2>
 
 <table id="user-sassTable">
 <tr>
@@ -56,11 +76,9 @@
   <th>Event Dates</th>
   <th>Your Dates</th>
   <th>Status </th>
-<% @friend.each do |role| %>
-  <%= render partial: "events_list", locals: {role: role} %>
-<%end%>
-</table>
 
+</table>
+ -->
 
 <br/><br/>
 

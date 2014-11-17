@@ -3,7 +3,7 @@
 <div class="event_wrapper2">
 <table id="table">
   <thead>
-    <tr>
+    <tr class="tableHeader">
       <th>Item</th>
       <th>Amount</th>
       <th>Description</th>
@@ -30,8 +30,8 @@
         <td><%= expense.item %></td>
         <td><%= expense.amount %></td>
         <td><%= expense.description %></td>
-        <td><%= expense.start_date %></td>
-        <td><%= expense.end_date %></td>
+        <td><%= expense.start_date.strftime("%a %b. %d") %></td>
+        <td><%= expense.end_date.strftime("%a %b. %d") %></td>
         <td><%= expense.tag %></td>
         <%if expense.calculation_type == "boat" %>
           <td>Variable Day Rate</td>

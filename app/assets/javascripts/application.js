@@ -17,4 +17,4 @@
 //= require fullcalendar
 //= require gcal
 //= require turbolinks
-//= require_tree 
+//= require_tree

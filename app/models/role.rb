@@ -8,8 +8,8 @@ class Role < ActiveRecord::Base
   validates :user, :uniqueness => {:scope => :event}
 
   def total_days
-		(end_date - start_date).to_i
-	end
+    (end_date - start_date).to_i
+  end
 
   def is_owner?
     self.permission == "owner"
